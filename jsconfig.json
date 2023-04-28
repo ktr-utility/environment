@@ -1,0 +1,17 @@
+
+{
+  "compilerOptions": {
+    "baseUrl": "./",
+    "paths": {
+      "#projectRoot": ["."],
+      "#projectRoot/*": ["./*.js"],
+      "#src": ["src/index.js"],
+      "#src/*": ["./src/*.js"],
+      "#util": ["./src/util/index.js"],
+      "#util/*": ["./src/util/*.js"],
+      "#test": ["./test/index.js"],
+      "#test/*": ["./test/*.js"],
+    }
+  },
+  "exclude": ["node_modules"]
+}
