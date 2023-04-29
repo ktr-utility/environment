@@ -6,9 +6,9 @@ import path from 'path'
 
 import walkAndFindEnvFiles from '#projectRoot/src/archive/walkAndFindEnvFiles'
 
-import {getDirname, getPackageJSONasObj, getScopeName, getTestDir} from '@ktr-srt/util'
+import {checkPathExists, createDirsAndFiles, getAbsPathOfDirName, getDirname, 
+        getPackageJSONasObj, getScopeName, getTestDir} from '@ktr-srt/util'
 
-import {checkPathExists, createDirsAndFiles, getAbsPathOfDirName} from '#util'
 
 import Env from '#projectRoot/src/archive/Env'
 

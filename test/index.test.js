@@ -4,11 +4,9 @@ import {describe, it} from 'mocha'
 import fs from 'fs'
 import path from 'path'
 
-import {getTestDir} from '@ktr-srt/util'
+import {createDirsAndFiles, getTestDir} from '@ktr-srt/util'
 
-import {createDirsAndFiles} from '#util'
-
-import {walkAndLoadEnv} from '#src/env'
+import {walkAndLoadEnv, walkLoadAndFlattenEnv} from '#src/index'
 
 const testDir = await getTestDir()
 const testDirTmp = path.join(testDir, 'tmpA')
@@ -41,8 +39,9 @@ describe('Env', () => {
         console.error(err)
       }
 
-      let res = await walkAndLoadEnv(path0, path2, { direction: 'up', prefix: '__ktr-srt__' })
-      res = res.flatten()
+      // let res = await walkAndLoadEnv(path0, path2, { direction: 'up', prefix: '__ktr-srt__' })
+      // res = res.flatten()
+      let res = await walkLoadAndFlattenEnv(path0, path2, { direction: 'up', prefix: '__ktr-srt__' })
 
       expect(Object.keys(res)).to.have.lengthOf(3)
       expect(res).to.have.property('hello0', 'world000')
