@@ -1,0 +1,68 @@
+# Node.js
+/node_modules
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Logs and debugging
+*.log
+npm-debug.log*
+
+# Dependency directories
+/pnpm-debug.log*
+/yarn-error.log*
+
+# Compiled output
+/dist
+/build
+/out
+/public
+/.next
+
+# Local development files
+.env.local
+.env.development
+.env.test
+.env.production.local
+
+# IDE and editor files
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+
+# macOS
+.AppleDouble
+.DS_Store
+.LSOverride
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# IDE-specific files
+*.sublime-project
+*.sublime-workspace
+.sass-cache/
+*.komodoproject
+.komodotool/
+.bundle
+.tmproj
+.tmproject
+.recommenders/
+
+# Miscellaneous
+node_modules/
+log/
+logs/
+*.backup
+*.bak
+*.swp
+*.tmp
+*.temp
+*~
+*.sass-cache/
