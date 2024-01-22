@@ -1,10 +1,11 @@
 import  {expect} from 'chai'
 import {describe, it} from 'mocha'
 
+import chalk from 'chalk'
 import fs from 'fs'
 import path from 'path'
 
-import {createDirsAndFiles, getTestDir} from '@ktr-srt/util'
+import {createDirsAndFiles, deleteDirsAndFiles, getTestDir} from '@ktr-utility/core_util'
 
 import {walkAndLoadEnv, walkLoadAndFlattenEnv} from '#src/index'
 
@@ -23,6 +24,15 @@ describe('Env', () => {
 
   before(async () => {
       await createDirsAndFiles([envPath0, envPath1, envPath2])
+  })
+
+  after(async () => {
+    let res = await deleteDirsAndFiles(tmpPaths)
+    console.log( chalk.hex('#5ADBFF')("Cleaning up [") + chalk.white(res.length) + chalk.hex('#5ADBFF')("] files and dirs...") )
+    console.log(chalk.hex('#5ADBFF')("Removed [") + chalk.white(res.length) + chalk.hex('#5ADBFF')("] files and dirs:"))
+    res.forEach((item) => {
+      console.log("  " + chalk.hex('#5ADBFF')(item))
+    })
   })
 
 

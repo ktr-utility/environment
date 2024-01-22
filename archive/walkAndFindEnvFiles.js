@@ -1,6 +1,6 @@
 import path from 'path'
 
-import {walkAndFindOne} from '@ktr-srt/util'
+import {walkUpAndFindOne} from '@ktr-utility/core_util'
 
 
 // walk up the directory tree and get env files along the way
@@ -16,7 +16,7 @@ export default async function walkAndFindEnvFiles(direction='up', startPath, end
   let envPaths = []
 
   while (true) {
-    const envFile = await walkAndFindOne('.env', currPath, currPath)
+    const envFile = await walkUpAndFindOne('.env', currPath, currPath)
 
     envPaths.push(envFile)
 

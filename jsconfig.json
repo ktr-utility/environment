@@ -11,7 +11,10 @@
       "#util/*": ["./src/util/*.js"],
       "#test": ["./test/index.js"],
       "#test/*": ["./test/*.js"],
+
+      "@ktr-utility/core_util": ["project/packages-other/util/src/index.js"],
     }
   },
+  "include": ["src/**/*.js"],
   "exclude": ["node_modules"]
 }

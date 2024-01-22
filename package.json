@@ -1,5 +1,5 @@
 {
-  "name": "@ktr-srt/environment",
+  "name": "@ktr-utility/environment",
   "packageManager": "yarn@3.5.0",
   "type": "module",
   "main": "src/index.js",
@@ -9,6 +9,9 @@
     "test": "mocha test --recursive --reporter spec --exit --timeout 10000 --full-trace --enable-source-maps",
     "dev": "node --experimental-specifier-resolution=node src/index.js",
     "devtest": "concurrently \"yarn test\" \"yarn dev\""
+  },
+  "exports": {
+    ".": "./src/index.js"
   },
   "imports": {
     "#projectRoot": ".",
@@ -23,7 +26,7 @@
     "#test/*.js": "./test/*.js"
   },
   "dependencies": {
-    "@ktr-srt/util": "workspace:^",
+    "@ktr-utility/core_util": "workspace:*",
     "axios": "^0.21.1",
     "dotenv": "^10.0.0",
     "nodemon": "^2.0.12"
@@ -31,6 +34,7 @@
   "devDependencies": {
     "chai": "^4.3.7",
     "chai-as-promised": "^7.1.1",
+    "chalk": "^5.2.0",
     "mocha": "^10.2.0"
   }
 }

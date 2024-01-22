@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 
-import {getScopeName, walkAndFindAll, walkAndFindOne} from '@ktr-srt/util'
+import {getScopeName, walkUpAndFindAll, walkUpAndFindOne} from '@ktr-utility/core_util'
 
 
 export default class Env {
@@ -12,7 +12,7 @@ export default class Env {
   /**
    * @pararm {String} bottomDirPath - The dir to start searching for config files in if direction is 'up', 
    *  or the dir to stop searching for config files in if direction is 'down'
-   * @param {String} scopeName - The name of the scope to search for config files in, ie @ktr-srt
+   * @param {string} scopeName - The name of the scope to search for config files in, ie @ktr-srt
    * @param {"up"|"down")} direction 
    */
   async init(bottomDirPath=process.cwd(), topDirPath, direction='up', prefix="__ktr-srt__") {
@@ -29,10 +29,10 @@ export default class Env {
     this.envarsObj = undefined // { 'envPath': { envars:{} } }
 
 
-    const scopeName = await getScopeName()
-    const scopePath = await walkAndFindOne(scopeName, bottomDirPath)
+    const scopeName = await getScopeName({})
+    const scopePath = await walkUpAndFindOne(scopeName, bottomDirPath)
 
-    envFilePaths = await walkAndFindAll('.env', bottomDirPath, scopePath)
+    envFilePaths = await walkUpAndFindAll('.env', bottomDirPath, scopePath)
 
 
     for (const envPath of envFilePaths) {
